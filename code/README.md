@@ -27,19 +27,19 @@ $ ./gradlew :app:shadowJar
 #### Reproduce The Experimental Results
 
 ```bash
-# call chain analysis, 1000 users (Sec. 5.2 & 5.3)
+# call chain analysis, 1000 users (Sec. 5.1 & 5.2 & 5.3)
 $ bash runall.sh -a cca
 
-# enter/exit analysis, 1000 users (Sec. 5.2 & 5.3)
+# enter/exit analysis, 1000 users (Sec. 5.1 & 5.2 & 5.3)
 $ bash runall.sh -a eeta
 
-# call chain analysis, 10000 users (Sec. 5.2 & 5.3)
+# call chain analysis, 10000 users (Sec. 5.1 & 5.2 & 5.3)
 $ bash runall.sh -a cca -r 10
 
-# enter/exit analysis, 10000 users (Sec. 5.2 & 5.3)
+# enter/exit analysis, 10000 users (Sec. 5.1 & 5.2 & 5.3)
 $ bash runall.sh -a eeta -r 10
 
-# strict algorithm (Sec. 5.3)
+# strict algorithm (Sec. 5.2)
 $ bash runall.sh -a cca -s
 $ bash runall.sh -a eeta -s
 
