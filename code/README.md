@@ -101,7 +101,7 @@ $ bash run.sh -n speedlogic --runs 2 -a eeta -e 49
 
 ### Plot the figures
 
-Running the eperiments above saves the results into directory `results\`. The plotting scripts read the data in it and plot the figures. If there isn't enough data for 30 runs, the confidence interval will be missing in the figures.
+Running the experiments above saves the results into directory `results\`. The plotting scripts read the data in it and plot the figures. If there isn't enough data for 30 runs, the confidence interval will be missing in the figures.
 
 Call the following command, and the figures will pop up:
 
