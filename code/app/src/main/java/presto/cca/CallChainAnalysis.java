@@ -34,6 +34,8 @@ class CallChainAnalysis {
 	public static Set<String> estimated_heavy_hitters = new HashSet<String>();
 	// app name
 	public static String app_name;
+	// output file path
+	public static String output_path;
 
 	public static void main(String[] args) {
 		parseArgs(args);
@@ -170,10 +172,18 @@ class CallChainAnalysis {
 		String REforEHH = computeREforEHH(); // for estimated heavy hitters
 		// print final metrics
 		System.out.println("*** Call-chain Analysis Result for '" + app_name + "' ***");
-		System.out.println("Error All: " + RE);
-		System.out.println("Error Hot: " + REforEHH);
-		System.out.println("Recall: " + recall);
-		System.out.println("Precision: " + precision);
+		String result_str = "";
+		result_str += "Error All: " + RE + "\n";
+		result_str += "Error Hot: " + REforEHH + "\n";
+		result_str += "Recall: " + recall + "\n";
+		result_str += "Precision: " + precision + "\n";
+		System.out.print(result_str);
+
+		if (output_path != null) {
+			System.out.println("*** Saving result to " + output_path + " ...");
+			Util.saveResultToFile(result_str, output_path);
+		}
+
 		// dump the frequencies for debugging
 		/* System.out.println("Printing frequencies of all chains...");
 		for (String long_id: Tree.union_ground_truth.keySet()) {
@@ -281,6 +291,9 @@ class CallChainAnalysis {
 					break;
 				case "-relax-factor":
 					Config.relax_factor = Double.parseDouble(args[++i]);
+					break;
+				case "-o":
+					output_path = args[++i];
 					break;
 				default:
 					throw new RuntimeException("Unknown option: " + args[i]);

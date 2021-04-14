@@ -63,4 +63,19 @@ public class Util {
 			return Integer.parseInt(st);
 		} catch (IOException e) { throw new RuntimeException(e); }
 	}
+
+	public static void saveResultToFile(String result_str, String file_path) {
+		File file = new File(file_path);
+		File dir = file.getParentFile();
+		try {
+			if (!dir.exists()) {
+				dir.mkdirs();
+			}
+			file.createNewFile();
+		} catch (IOException e) { throw new RuntimeException(e); }
+		
+		try (Writer writer = new BufferedWriter(new FileWriter(file))) {
+			writer.write(result_str);
+		} catch (IOException e) { throw new RuntimeException(e); }
+	}
 }

@@ -1,13 +1,11 @@
 #!/bin/bash
 
-APPS=('barometer' 'bible' 'dpm' 'drumpads' 'equibase' 'goforit' 'loctracker' 'mitula' \
-    'moonphases' 'parking' 'parrot' 'post' 'quicknews' 'speedlogic' 'vidanta')
-
 JAR='app/build/libs/app-1.0-SNAPSHOT-all.jar'
 TRACE_DIR='../traces/'
 EPSILON=9
 REPLICATION=1
 STRICT=false
+NUM_RUNS=1
 while [[ $# -gt 0 ]]; do
 	key="$1"
 	case $key in
@@ -17,6 +15,11 @@ while [[ $# -gt 0 ]]; do
 			echo analysis type must be cca or eeta
 			exit 1
 		fi
+		shift
+		shift
+		;;
+		-n|--app)
+		APP=$2
 		shift
 		shift
 		;;
@@ -34,8 +37,25 @@ while [[ $# -gt 0 ]]; do
 		STRICT=true
 		shift
 		;;
+		--runs)
+		NUM_RUNS=$2
+		shift
+		shift
+		;;
 	esac
 done
+
+if [ "$APP" = '' ]; then
+	echo no app specified
+	exit 1
+fi
+
+if [ "$ANALYSIS" = '' ]; then
+	echo no analysis type specified
+	exit 1
+fi
+
+
 
 if [ $ANALYSIS == 'cca' ]; then
 	TITLE='Call Chain Analysis'
@@ -45,11 +65,14 @@ fi
 
 let NUM_USERS=1000*$REPLICATION
 
-for APP in ${APPS[@]}; do
+for i in $(seq $NUM_RUNS); do
+	FILE="$APP-$ANALYSIS-u$NUM_USERS-e$EPSILON-"
 	if [ $STRICT = 'true' ]; then
-		echo "========== $TITLE: '$APP' $NUM_USERS users epsilon=ln$EPSILON strict =========="
+		FILE+="strict"
+		echo "========== $TITLE: '$APP', $NUM_USERS users, epsilon=ln$EPSILON, strict, run $i =========="
 	else
-		echo "========== $TITLE: '$APP' $NUM_USERS users epsilon=ln$EPSILON relaxed =========="
+		FILE+="relaxed"
+		echo "========== $TITLE: '$APP', $NUM_USERS users, epsilon=ln$EPSILON, relaxed, run $i =========="
 	fi
 	CMD="java -cp $JAR presto.$ANALYSIS."
 	if [ $ANALYSIS = 'cca' ]; then
@@ -57,10 +80,12 @@ for APP in ${APPS[@]}; do
 	else
 		CMD+='EnterExitTraceAnalysis'
 	fi
-	CMD+=" -d $TRACE_DIR$APP -r $REPLICATION -e $EPSILON"
+	FILE+="-run$i.txt"
+	CMD+=" -d $TRACE_DIR$APP -r $REPLICATION -e $EPSILON -o results/$FILE"
 	if [ $STRICT = 'true' ]; then
 		CMD+=" -s"
 	fi
+	#echo $CMD
 	$CMD
 	echo
 done

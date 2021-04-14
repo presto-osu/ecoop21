@@ -43,8 +43,6 @@ public class Tree {
 					if (valid_len < 2*Config.depth_limit) {
 						valid += "," + id;
 						valid_len++;
-						Integer cnt = union_sub_traces.getOrDefault(valid, 0);
-						union_sub_traces.put(valid, cnt+1);
 						sub_traces.add(valid);
 					}
 				}
@@ -57,8 +55,6 @@ public class Tree {
 						if (valid_len < 2*Config.depth_limit) {
 							valid += ",-" + id;
 							valid_len++;
-							Integer cnt = union_sub_traces.getOrDefault(valid, 0);
-							union_sub_traces.put(valid, cnt+1);
 							sub_traces.add(valid);
 						}
 						if (curr == root) {
@@ -71,6 +67,12 @@ public class Tree {
 				else throw new RuntimeException("Expected E-"+id + " but observed " + top_event);
 			}
 		}
+		for (String long_id: sub_traces) {
+			Integer cnt = union_sub_traces.getOrDefault(long_id, 0);
+			union_sub_traces.put(long_id, cnt+1);
+		}
+		
+
 		if (all_nodes.size() + 1 != size) throw new RuntimeException();
 	}
 }
