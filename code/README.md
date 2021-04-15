@@ -45,7 +45,7 @@ $ cd code
 $ ./gradlew :app:shadowJar
 ```
 
-### Run
+### Usage
 Instead of running the analyses by invoking the `java` command, we provide a wrapping script `run.sh` for convinience. The instructions for reproducing the results are based on this script. Here's the description about how to use the script.
 
 | Flag | Description |
@@ -55,7 +55,7 @@ Instead of running the analyses by invoking the `java` command, we provide a wra
 | `-r VALUE` | Optional. # of replication per user. E.g., `-r 10` means 10000 users. Default is 1, i.e., 1000 users.|
 | `-e VALUE` | Optional. Value for the privacy parameter. Will use the natural log of this value, i.e., `ε=ln(VALUE)`. E.g., `-e 49` sets ε to ln(49). Default is 9.|
 | `-s` | Optional. To use the strict algorithm. The relaxed algorithm is used by default.| 
-| `--runs VALUE` | Optional. If specified, the experiment will be repeated for `VALUE` times. To get the confidence interval, the experiment should be repeated for at least 30 times. Default is 1.|
+| `--runs VALUE` | Optional. If specified, the experiment will be repeated for `VALUE` times. To get the confidence interval, the experiments should be repeated for at least 30 times. Default is 1.|
 
 The script prints the result, including `error-all`, `error-hot`, `recall`, and `precision`, to stdout. It also saves the result to a file in `results/`.
 
@@ -67,7 +67,7 @@ $ bash run.sh -n drumpads -a cca -e 49
 ```
 
 
-## Reproduce The Results
+## Reproducing The Results
 
 Note that to get the complete figures in Section 5 of the paper for all 15 apps and the confidence intervals (the little caps in the bar charts as shown in the paper), you need to run the experiments for 30 runs, which is expected to take more than a month. It is more practical to pick a few fast apps and run a small number of runs or just one run. In this case, the resulting figures will show blanks for some apps and the confidence intervals will be missing.
 
