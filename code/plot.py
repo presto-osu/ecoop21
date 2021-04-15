@@ -47,71 +47,71 @@ def load_data(app):
 	data = {}
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-cca-u1000-e9-relaxed-run*.txt' % app)
-	data['re_all_1k_cc'] = np.mean(error_all)
+	data['re_all_1k_cc'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_ci_1k_cc'] = get_ci(error_all)
-	data['re_hot_1k_cc'] = np.mean(error_hot)
+	data['re_hot_1k_cc'] = np.mean(error_hot) if len(error_hot) > 0 else np.nan
 	data['re_hot_ci_1k_cc'] = get_ci(error_hot)
-	data['recall_1k_cc'] = np.mean(recall)
+	data['recall_1k_cc'] = np.mean(recall) if len(recall) > 0 else np.nan
 	data['recall_ci_1k_cc'] = get_ci(recall)
-	data['precision_1k_cc'] = np.mean(precision)
+	data['precision_1k_cc'] = np.mean(precision) if len(precision) > 0 else np.nan
 	data['precision_ci_1k_cc'] = get_ci(precision)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-cca-u10000-e9-relaxed-run*.txt' % app)
-	data['re_all_10k_cc'] = np.mean(error_all)
+	data['re_all_10k_cc'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_ci_10k_cc'] = get_ci(error_all)
-	data['re_hot_10k_cc'] = np.mean(error_hot)
+	data['re_hot_10k_cc'] = np.mean(error_hot) if len(error_hot) > 0 else np.nan
 	data['re_hot_ci_10k_cc'] = get_ci(error_hot)
-	data['recall_10k_cc'] = np.mean(recall)
+	data['recall_10k_cc'] = np.mean(recall) if len(recall) > 0 else np.nan
 	data['recall_ci_10k_cc'] = get_ci(recall)
-	data['precision_10k_cc'] = np.mean(precision)
+	data['precision_10k_cc'] = np.mean(precision) if len(precision) > 0 else np.nan
 	data['precision_ci_10k_cc'] = get_ci(precision)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-eeta-u1000-e9-relaxed-run*.txt' % app)
-	data['re_all_1k_eet'] = np.mean(error_all)
+	data['re_all_1k_eet'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_ci_1k_eet'] = get_ci(error_all)
-	data['re_hot_1k_eet'] = np.mean(error_hot)
+	data['re_hot_1k_eet'] = np.mean(error_hot) if len(error_hot) > 0 else np.nan
 	data['re_hot_ci_1k_eet'] = get_ci(error_hot)
-	data['recall_1k_eet'] = np.mean(recall)
+	data['recall_1k_eet'] = np.mean(recall) if len(recall) > 0 else np.nan
 	data['recall_ci_1k_eet'] = get_ci(recall)
-	data['precision_1k_eet'] = np.mean(precision)
+	data['precision_1k_eet'] = np.mean(precision) if len(precision) > 0 else np.nan
 	data['precision_ci_1k_eet'] = get_ci(precision)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-eeta-u10000-e9-relaxed-run*.txt' % app)
-	data['re_all_10k_eet'] = np.mean(error_all)
+	data['re_all_10k_eet'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_ci_10k_eet'] = get_ci(error_all)
-	data['re_hot_10k_eet'] = np.mean(error_hot)
+	data['re_hot_10k_eet'] = np.mean(error_hot) if len(error_hot) > 0 else np.nan
 	data['re_hot_ci_10k_eet'] = get_ci(error_hot)
-	data['recall_10k_eet'] = np.mean(recall)
+	data['recall_10k_eet'] = np.mean(recall) if len(recall) > 0 else np.nan
 	data['recall_ci_10k_eet'] = get_ci(recall)
-	data['precision_10k_eet'] = np.mean(precision)
+	data['precision_10k_eet'] = np.mean(precision) if len(precision) > 0 else np.nan
 	data['precision_ci_10k_eet'] = get_ci(precision)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-cca-u1000-e9-strict-run*.txt' % app)
-	data['recall_strict_1k_cc'] = np.mean(recall)
+	data['recall_strict_1k_cc'] = np.mean(recall) if len(recall) > 0 else np.nan
 	data['recall_strict_ci_1k_cc'] = get_ci(recall)
-	data['precision_strict_1k_cc'] = np.mean(precision)
+	data['precision_strict_1k_cc'] = np.mean(precision) if len(precision) > 0 else np.nan
 	data['precision_strict_ci_1k_cc'] = get_ci(precision)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-eeta-u1000-e9-strict-run*.txt' % app)
-	data['recall_strict_1k_eet'] = np.mean(recall)
+	data['recall_strict_1k_eet'] = np.mean(recall) if len(recall) > 0 else np.nan
 	data['recall_strict_ci_1k_eet'] = get_ci(recall)
-	data['precision_strict_1k_eet'] = np.mean(precision)
+	data['precision_strict_1k_eet'] = np.mean(precision) if len(precision) > 0 else np.nan
 	data['precision_strict_ci_1k_eet'] = get_ci(precision)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-cca-u1000-e3-relaxed-run*.txt' % app)
-	data['re_all_e3_1k_cc'] = np.mean(error_all)
+	data['re_all_e3_1k_cc'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_e3_ci_1k_cc'] = get_ci(error_all)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-cca-u1000-e49-relaxed-run*.txt' % app)
-	data['re_all_e49_1k_cc'] = np.mean(error_all)
+	data['re_all_e49_1k_cc'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_e49_ci_1k_cc'] = get_ci(error_all)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-eeta-u1000-e3-relaxed-run*.txt' % app)
-	data['re_all_e3_1k_eet'] = np.mean(error_all)
+	data['re_all_e3_1k_eet'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_e3_ci_1k_eet'] = get_ci(error_all)
 
 	error_all, error_hot, recall, precision = read_from_files('results/%s-eeta-u1000-e49-relaxed-run*.txt' % app)
-	data['re_all_e49_1k_eet'] = np.mean(error_all)
+	data['re_all_e49_1k_eet'] = np.mean(error_all) if len(error_all) > 0 else np.nan
 	data['re_all_e49_ci_1k_eet'] = get_ci(error_all)
 
 	return data
