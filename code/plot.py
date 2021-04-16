@@ -298,7 +298,7 @@ def plot_fig4(data):
 	ax[0][0].set_ylabel('Recall')
 	ax[0][0].set_xticks(x)
 	ax[0][0].tick_params(labelbottom=False) 
-	ax[0][0].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=2)
+	ax[0][0].legend(loc=9, bbox_to_anchor=(0.5, -0.1), ncol=2)
 	ax[0][0].set_title('Call chains')
 
 	ax[1][0].bar(x - width/2, precision_strict_1k_cc, width, label='strict', 
@@ -322,7 +322,7 @@ def plot_fig4(data):
 	ax[0][1].set_ylabel('Recall')
 	ax[0][1].set_xticks(x)
 	ax[0][1].tick_params(labelbottom=False) 
-	ax[0][1].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=2)
+	ax[0][1].legend(loc=9, bbox_to_anchor=(0.5, -0.1), ncol=2)
 	ax[0][1].set_title('Enter/exit traces')
 
 	ax[1][1].bar(x - width/2, precision_strict_1k_eet, width, label='strict', 
