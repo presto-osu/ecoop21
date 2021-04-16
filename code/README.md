@@ -55,7 +55,7 @@ Instead of running the analyses by invoking the `java` command, we provide a wra
 | `-r VALUE` | Optional. # of replication per user. E.g., `-r 10` means 10000 users. Default is 1, i.e., 1000 users.|
 | `-e VALUE` | Optional. Value for the privacy parameter. Will use the natural log of this value, i.e., `ε=ln(VALUE)`. E.g., `-e 49` sets ε to ln(49). Default is 9.|
 | `-s` | Optional. To use the strict algorithm. The relaxed algorithm is used by default.| 
-| `--runs VALUE` | Optional. If specified, the experiment will be repeated for `VALUE` times. To get the confidence interval, the experiments should be repeated for at least 30 times. Default is 1.|
+| `--runs VALUE` | Optional. If specified, the experiment will be repeated for `VALUE` times. To get the confidence intervals, the experiments should be repeated for at least 30 times. Default is 1.|
 
 The script prints the result, including `error-all`, `error-hot`, `recall`, and `precision`, to stdout. It also saves the result to a file in `results/`.
 
@@ -103,7 +103,7 @@ $ bash run.sh -n speedlogic --runs 2 -a eeta -e 49
 
 ### Plotting the results
 
-Running the experiments above saves the results into directory `results/`. The plotting script read and plot the data in this folder. If there isn't enough data for 30 runs, the confidence interval will be missing in the figures.
+Running the experiments above saves the results into directory `results/`. The plotting script read and plot the data in this folder. If there isn't enough data for 30 runs, the confidence intervals will be missing in the figures.
 
 Execute the following command and the figures will pop up and be saved automatically in PDF format:
 
