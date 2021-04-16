@@ -6,6 +6,7 @@ import sys
 import collections
 import glob
 import subprocess
+import warnings
 
 apps = ['barometer', 'bible', 'dpm', 'drumpads', 'equibase', 'localtv', 'loctracker', 'mitula', 'moonphases',\
 			'parking', 'parrot', 'post', 'quicknews', 'speedlogic', 'vidanta']
@@ -36,7 +37,7 @@ def get_ci(values):
 	if len(values) < 30:
 		return np.nan
 	elif len(values) == 30:
-		output = subprocess.check_output(['java -cp app/build/libs/app-1.0-SNAPSHOT-all.jar presto.Statistics', \
+		output = subprocess.check_output(['java', '-cp', 'app/build/libs/app-1.0-SNAPSHOT-all.jar', 'presto.Statistics', \
 			*[str(x) for x in values]])
 		return float(output.decode('utf-8'))
 	else:
@@ -119,6 +120,8 @@ def load_data(app):
 
 
 def main():
+	warnings.simplefilter("ignore", UserWarning)
+
 	data = {}
 	for app in apps:
 		data[app] = load_data(app)
@@ -177,6 +180,8 @@ def plot_fig2(data):
 
 	fig.suptitle('fig 2')
 	fig.tight_layout()
+
+	plt.savefig('fig2.pdf')
 
 
 def plot_fig3(data):
@@ -255,6 +260,8 @@ def plot_fig3(data):
 	fig.suptitle('fig 3')
 	fig.tight_layout()
 
+	plt.savefig('fig3.pdf')
+
 
 def plot_fig4(data):
 	recall_1k_cc = get_one_data_all_apps(data, 'recall_1k_cc')
@@ -332,6 +339,8 @@ def plot_fig4(data):
 	fig.suptitle('fig 4')
 	fig.tight_layout()
 
+	plt.savefig('fig4.pdf')
+
 
 def plot_fig5(data):
 	re_hot_1k_cc = get_one_data_all_apps(data, 're_hot_1k_cc')
@@ -370,6 +379,8 @@ def plot_fig5(data):
 
 	fig.suptitle('fig 5')
 	fig.tight_layout()
+
+	plt.savefig('fig5.pdf')
 
 
 def plot_fig6(data):
@@ -417,6 +428,8 @@ def plot_fig6(data):
 
 	fig.suptitle('fig 6')
 	fig.tight_layout()
+
+	plt.savefig('fig6.pdf')
 
 
 if __name__ == '__main__':
