@@ -165,7 +165,7 @@ def plot_fig2(data):
 	ax[0].set_ylabel('Error All')
 	ax[0].set_title('Call chains')
 	ax[0].set_xticks(x)
-	ax[0].set_xticklabels(apps, rotation=75)
+	ax[0].set_xticklabels(apps, rotation=90)
 	ax[0].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=2)
 
 	ax[1].bar(x - width/2, re_all_1k_eet, width, label='1000 users', 
@@ -175,7 +175,7 @@ def plot_fig2(data):
 	ax[1].set_ylabel('Error All')
 	ax[1].set_title('Enter/exit traces')
 	ax[1].set_xticks(x)
-	ax[1].set_xticklabels(apps, rotation=75)
+	ax[1].set_xticklabels(apps, rotation=90)
 	ax[1].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=2)
 
 	fig.suptitle('fig 2')
@@ -231,7 +231,7 @@ def plot_fig3(data):
 	ax[1][0].set_yticks([0, 0.5, 1.0])
 	ax[1][0].set_ylabel('Precision')
 	ax[1][0].set_xticks(x)
-	ax[1][0].set_xticklabels(apps, rotation=75)
+	ax[1][0].set_xticklabels(apps, rotation=90)
 
 	ax[0][1].bar(x - width/2, recall_1k_eet, width, label='1000 users', 
 		yerr=recall_ci_1k_eet, capsize=1.5)
@@ -255,7 +255,7 @@ def plot_fig3(data):
 	ax[1][1].set_yticks([0, 0.5, 1.0])
 	ax[1][1].set_ylabel('Precision')
 	ax[1][1].set_xticks(x)
-	ax[1][1].set_xticklabels(apps, rotation=75)
+	ax[1][1].set_xticklabels(apps, rotation=90)
 
 	fig.suptitle('fig 3')
 	fig.tight_layout()
@@ -310,7 +310,7 @@ def plot_fig4(data):
 	ax[1][0].set_yticks([0, 0.5, 1.0])
 	ax[1][0].set_ylabel('Precision')
 	ax[1][0].set_xticks(x)
-	ax[1][0].set_xticklabels(apps, rotation=75)
+	ax[1][0].set_xticklabels(apps, rotation=90)
 
 	ax[0][1].bar(x - width/2, recall_strict_1k_eet, width, label='strict', 
 		yerr=recall_strict_ci_1k_eet, capsize=1.5)
@@ -334,7 +334,7 @@ def plot_fig4(data):
 	ax[1][1].set_yticks([0, 0.5, 1.0])
 	ax[1][1].set_ylabel('Precision')
 	ax[1][1].set_xticks(x)
-	ax[1][1].set_xticklabels(apps, rotation=75)
+	ax[1][1].set_xticklabels(apps, rotation=90)
 
 	fig.suptitle('fig 4')
 	fig.tight_layout()
@@ -364,7 +364,7 @@ def plot_fig5(data):
 	ax[0].set_ylabel('Error Hot')
 	ax[0].set_title('Call chains')
 	ax[0].set_xticks(x)
-	ax[0].set_xticklabels(apps, rotation=75)
+	ax[0].set_xticklabels(apps, rotation=90)
 	ax[0].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=2)
 
 	ax[1].bar(x - width/2, re_hot_1k_eet, width, label='1000 users', 
@@ -374,7 +374,7 @@ def plot_fig5(data):
 	ax[1].set_ylabel('Error Hot')
 	ax[1].set_title('Enter/exit traces')
 	ax[1].set_xticks(x)
-	ax[1].set_xticklabels(apps, rotation=75)
+	ax[1].set_xticklabels(apps, rotation=90)
 	ax[1].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=2)
 
 	fig.suptitle('fig 5')
@@ -411,7 +411,7 @@ def plot_fig6(data):
 	ax[0].set_ylabel('Error All')
 	ax[0].set_title('Call chains')
 	ax[0].set_xticks(x)
-	ax[0].set_xticklabels(apps, rotation=75)
+	ax[0].set_xticklabels(apps, rotation=90)
 	ax[0].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=3)
 
 	ax[1].bar(x - width, re_all_e3_1k_eet, width, label='ln(3)', 
@@ -423,7 +423,7 @@ def plot_fig6(data):
 	ax[1].set_ylabel('Error All')
 	ax[1].set_title('Enter/exit traces')
 	ax[1].set_xticks(x)
-	ax[1].set_xticklabels(apps, rotation=75)
+	ax[1].set_xticklabels(apps, rotation=90)
 	ax[1].legend(loc=9, bbox_to_anchor=(0.5, 1.4), ncol=3)
 
 	fig.suptitle('fig 6')
