@@ -105,7 +105,7 @@ $ bash run.sh -n speedlogic --runs 2 -a eeta -e 49
 
 Running the experiments above saves the results into directory `results/`. The plotting script read the data in this folder and plot the data. If there isn't enough data for 30 runs, the confidence interval will be missing in the figures.
 
-Call the following command, the figures will pop up and be saved automatically in the same directory in pdf format:
+Call the following command, the figures will pop up and be saved automatically in PDF format:
 
 ```bash
 $ python3 plot.py
