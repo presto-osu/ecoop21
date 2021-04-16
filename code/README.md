@@ -27,7 +27,7 @@ $ cd ecoop21
 ```
 
 ### Download the dataset
-Download and extract [dataset.tar.gz](https://github.com/presto-osu/ecoop21/releases/download/dataset/traces.tar.gz) to `ecoop21/`:
+Download and extract [traces.tar.gz](https://github.com/presto-osu/ecoop21/releases/download/dataset/traces.tar.gz) to `ecoop21/`:
 
 ```bash
 $ wget https://github.com/presto-osu/ecoop21/releases/download/dataset/traces.tar.gz
