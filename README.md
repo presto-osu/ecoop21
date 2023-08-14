@@ -1,4 +1,4 @@
-This is the release of artifact for the following [paper](http://web.cse.ohio-state.edu/presto/pubs/ecoop21.pdf):
+This is the release of artifacts for the following [paper](http://web.cse.ohio-state.edu/presto/pubs/ecoop21.pdf):
 
 ```
 @inproceedings{hao-ecoop21,
