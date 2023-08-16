@@ -16,3 +16,5 @@ We also provide a self-contained docker image. Please follow the guide [here](do
 
 
 If you have any question, please contact the authors of the paper or submit an [issue](https://github.com/presto-osu/ecoop21/issues/new?labels=question).
+
+These artifacts are based upon work supported by the National Science Foundation under Grant CCF-1907715.
